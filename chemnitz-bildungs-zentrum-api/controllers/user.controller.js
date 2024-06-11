@@ -249,6 +249,7 @@ export async function changePassword(req,res) {
 };
 
 export async function deleteUser(req,res){
+    console.log(req);
     try {
         const userId = req.user.id;
         await User.findByIdAndDelete(userId);
