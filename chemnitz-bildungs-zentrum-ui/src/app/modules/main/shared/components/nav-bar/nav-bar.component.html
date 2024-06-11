@@ -1,0 +1,92 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-light">
+    <a
+      class="navbar-brand"
+      [routerLink]="['/']"
+      ><img src="assets/img/logo.png" height="54px" width="52px"
+    /></a>
+    <button
+      class="navbar-toggler mr-3"
+      type="button"
+      (click)="toggleNavbar()"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ show: navbarOpen }"
+      id="navbarNavDropdown"
+    >
+      <ul
+        class="navbar-nav mr-auto"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ><i
+              nz-icon
+              nzType="home"
+              nzTheme="outline"
+              class="nav-icons"
+            ></i>
+            Search for Facilities</a
+          >
+        </li>
+      </ul>
+  
+      <div class="user ml-auto navbar-text" nz-dropdown [nzDropdownMenu]="menu">
+        <nz-avatar class="avatar" [nzText]="getUserName()[0]"></nz-avatar>
+        <div class="nav-item">
+          <a>
+            Hi, {{ getUserName() | titlecase }}
+            <i class="ml-2" nz-icon nzType="down" nzTheme="outline"></i>
+          </a>
+        </div>
+      </div>
+  
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li
+            nz-menu-item
+            (click)="gotoProfile()"
+          >
+            Profile
+          </li>
+          <li
+            nz-menu-item
+            class="text-danger"
+            (click)="showSignOutConfirmModal()"
+          >
+            Sign Out
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </nav>
+  
+  <nz-modal
+    [(nzVisible)]="isSignOutModalVisible"
+    [nzTitle]="modalTitle"
+    nzContent="Are you sure you want to Sign Out?"
+    (nzOnCancel)="signOutCancel()"
+    [nzFooter]="modalFooter"
+  >
+  </nz-modal>
+  <ng-template #modalTitle>
+    <h1>Sign Out</h1>
+  </ng-template>
+  
+  <ng-template #modalFooter>
+    <button nz-button class="btn" nzType="text" (click)="signOutCancel()">
+      Cancel
+    </button>
+    <button nz-button class="btn btn-secondary" (click)="signOutOk()">Yes</button>
+  </ng-template>
+  

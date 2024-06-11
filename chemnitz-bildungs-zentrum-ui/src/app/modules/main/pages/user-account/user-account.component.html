@@ -1,0 +1,84 @@
+<div class="user-profile container-fluid">
+    <div class="row page-header">
+      <div>
+        <h1>Your Profile</h1>
+      </div>
+    </div>
+    <div class="row mx-1 d-flex">
+      <!-- Organization PROFILE START-->
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+        <div class="card profile">
+          <div class="d-flex p-4">
+            <div class="user-info">
+              <h2>{{ currentUser.fullName | titlecase}}</h2>
+  
+              <p class="txt-gray" *ngIf="currentUser.address">
+                {{ currentUser.address.street }}
+              </p>
+            </div>
+            <div class="edit-icon" *ngIf="currentUser">
+              <i
+                nz-icon
+                nzType="edit"
+                nzTheme="outline"
+                (click)="editUserDetails()"
+                nzTooltipTitle="Edit"
+                nzTooltipPlacement="top"
+                nz-tooltip
+              ></i>
+            </div>
+          </div>
+          <nz-divider class="m-0"></nz-divider>
+          <div class="p-4">
+            <div class="info" *ngIf="currentUser.email">
+              <div class="contact-icon">
+                <i nz-icon nzType="mail" nzTheme="outline"></i>
+              </div>
+              <div class="txt-gray">{{ currentUser.email }}</div>
+            </div>
+  
+            <div class="info" *ngIf="currentUser.fullName">
+              <div class="contact-icon">
+                <i nz-icon nzType="user" nzTheme="outline"></i>
+              </div>
+              <div class="txt-gray" *ngIf="currentUser.fullName">
+                {{ currentUser.fullName }}
+              </div>
+            </div>
+          </div>
+          <nz-divider class="m-0"></nz-divider>
+          <div class="p-4">
+            <div class="info">
+              <div class="contact-icon">
+                <i nz-icon nzType="delete" nzTheme="outline"></i>
+              </div>
+              <div class="txt-gray link" (click)="openDeleteModal()">Delete your account</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+        <app-favourite-facility></app-favourite-facility>
+      </div>
+    </div>
+  </div>
+
+  <nz-modal
+    [(nzVisible)]="isDeleteModalVisible"
+    [nzTitle]="modalTitle"
+    nzContent="Are you sure you want to delete your account? This will permanently delete your account data"
+    (nzOnCancel)="deleteCancel()"
+    [nzFooter]="modalFooter"
+  >
+  </nz-modal>
+  <ng-template #modalTitle>
+    <h1>Delete your account</h1>
+  </ng-template>
+  
+  <ng-template #modalFooter>
+    <button nz-button class="btn" nzType="text" (click)="deleteCancel()">
+      Cancel
+    </button>
+    <button nz-button class="btn btn-secondary" (click)="deleteOk()">Yes</button>
+  </ng-template>

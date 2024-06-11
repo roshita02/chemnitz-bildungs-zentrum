@@ -1,0 +1,78 @@
+@import 'function';
+@import 'variable';
+
+@mixin font-size($size) {
+  font-size: $size !important;
+  font-size: calculateRem($size) !important;
+}
+
+@mixin base-button(
+  $width: auto,
+  $height: auto,
+  $padding: 10px,
+  $border-radius: 5px,
+  $btn-color: $btn-primary-color,
+  $border-color: $btn-color,
+  $font-size: $font-size-n,
+  $font-color: white,
+  $type: 'normal'
+) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  padding: $padding;
+  @include font-size($font-size);
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  font-weight: $font-bold;
+
+  @if $type== 'normal' {
+    color: $font-color;
+    background-color: $btn-color;
+
+    &:hover:enabled {
+      background-color: darker($btn-color);
+      border: 1px solid darker($border-color);
+    }
+    &:focus:enabled {
+      background-color: darker($btn-color) !important;
+      border-color: darker($btn-color) !important;
+      box-shadow: 0 0 0 0.2rem rgba(darker($btn-color), 0.5) !important;
+    }
+    &:active:enabled {
+      background-color: darker($btn-color) !important;
+      border-color: darker($btn-color) !important;
+    }
+  } @else if $type == 'outline' {
+    color: $btn-color;
+    background-color: transparent;
+
+    &:hover {
+      color: $font-color;
+      background-color: $btn-color;
+    }
+  }@else if $type == 'light' {
+    border: 0;
+    color: $btn-color;
+    background-color: transparent;
+
+    &:hover {
+      color: $font-color;
+      background-color: $btn-color;
+    }
+  } @else {
+    @warn "Button type supports: normal, outline";
+  }
+}
+
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $spread $color;
+    -moz-box-shadow: inset $top $left $blur $spread $color;
+    box-shadow: inset $top $left $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}

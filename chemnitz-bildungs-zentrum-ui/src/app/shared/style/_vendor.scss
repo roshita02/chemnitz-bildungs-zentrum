@@ -1,0 +1,124 @@
+@import "variable";
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: $app-primary-color !important;
+  box-shadow: 0 0 0 2px rgba($app-primary-color, 0.2) !important;
+}
+
+.ant-form-item {
+  margin-bottom: 15px;
+}
+
+.anticon {
+  vertical-align: text-bottom !important;
+}
+
+
+.ant-modal-content {
+  border-radius: 10px !important;
+  .ant-modal-header {
+    border-radius: 10px 10px 0 0 !important;
+    border-bottom: 0;
+  }
+  .ant-modal-body {
+    padding-top: 0;
+  }
+  .ant-modal-footer {
+    border-top: 0;
+  }
+}
+
+.ant-modal-confirm .ant-modal-body {
+  padding: 32px 32px 24px !important;
+}
+
+.ant-select-multiple .ant-select-selection-item {
+  color: $app-primary-color;
+  font-weight: $font-bold;
+  background-color: $highlight-color;
+}
+
+.ant-form-item-label {
+  padding: 0 !important;
+  label {
+    color: $txt-label-color;
+    font-weight: $font-bold;
+    @include font-size($font-size-sm);
+    height: 32px !important;
+  }
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  content: "";
+  margin-right: 0;
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline-block;
+  margin-left: 4px;
+  color: $txt-label-color;
+  line-height: 1;
+  content: "*";
+}
+
+.ant-btn-primary {
+  background-color: $app-secondary-color;
+  border-color: $app-secondary-color;
+  &:focus {
+    background-color: darker($app-secondary-color);
+    border-color: darker($app-secondary-color);
+  }
+  &:hover {
+    background-color: darker($app-secondary-color);
+    border-color: darker($app-secondary-color);
+  }
+}
+
+.inner-table {
+  margin: 11px 40px 40px 7px;
+
+  table {
+    box-shadow: none;
+    border-radius: 0 !important;
+  }
+}
+
+
+.ant-modal-title {
+  color: $txt-label-color;
+  font-size: 1.75rem !important;
+  font-weight: $font-extra-bold;
+}
+
+.ant-dropdown-menu-item {
+  li {
+    i {
+      @include font-size($font-size-sm);
+    }
+  }
+
+  &:hover {
+    background-color: $app-primary-color !important ;
+    color: $white !important;
+  }
+}
+
+.ant-dropdown-menu-item-danger {
+  &:hover {
+    background-color: $error-color !important ;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .anticon{
+    margin-right: 0.8rem;
+  }
+}

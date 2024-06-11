@@ -1,0 +1,55 @@
+@import "../../../../../styles.scss";
+
+.favourite-facility {
+    .facility {
+        padding: 1rem;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        margin: 10px 0px;
+        display: flex;
+        text-align: center;
+        .fav-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            nz-avatar {
+                color: $app-primary-color;
+                background-color: $highlight-color;
+                line-height: 40px !important;
+            }
+        }
+        .facility-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12px;
+            p {
+                color: $txt-muted-color;
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .delete-icon {
+        position: absolute;
+        top: 1.5rem;
+        right: 25px;
+        color: $txt-muted-color;
+        font-size: $font-size-n;
+  
+        i {
+          cursor: pointer;
+        }
+        &:hover{
+          color: $app-secondary-color;
+        }
+      }
+
+    .card {
+        max-height: 328px;
+        min-height: 328px;
+        border-radius: 10px;
+        box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    }
+}

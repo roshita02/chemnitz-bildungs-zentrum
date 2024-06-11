@@ -1,0 +1,166 @@
+<div class="pg-signup">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 col-md-6 left d-none d-sm-block">
+          <div>
+            <div class="overlay">
+              <h2>
+                Why create an account?
+              </h2>
+              <ul>
+                <li>
+                  Explore variety of facility options for you or your children
+                </li>
+                <li>Discover nearby facilities from your home</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 right">
+          <div>
+            <div class="text-center">
+              <img src="assets/img/chemnitz-bildungs-zentrum-header-logo.png"/>
+            </div>
+            <div *ngIf="!successMessage; else elseBlock">
+              <h2 class="mt-5">Sign up</h2>
+              <form
+                nz-form
+                [nzLayout]="'vertical'"
+                [formGroup]="signUpForm"
+                (ngSubmit)="submitForm()"
+              >
+              <nz-form-item>
+                <nz-form-label class="label" nzRequired>First Name</nz-form-label>
+                <nz-form-control [nzErrorTip]="firstNameErrorTpl">
+                  <input type="text" nz-input formControlName="firstName" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label class="label" nzRequired>Last Name</nz-form-label>
+                <nz-form-control [nzErrorTip]="lastNameErrorTpl">
+                  <input type="text" nz-input formControlName="lastName" />
+                </nz-form-control>
+              </nz-form-item>
+
+                <nz-form-item>
+                  <nz-form-label class="label" nzRequired>E-mail</nz-form-label>
+                  <nz-form-control [nzErrorTip]="emailErrorTpl">
+                    <input type="text" nz-input formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+  
+                <nz-form-item>
+                  <nz-form-label class="label" nzRequired
+                    >Create a Password</nz-form-label
+                  >
+                  <nz-form-control [nzErrorTip]="passwordErrorTpl">
+                    <input type="password" nz-input formControlName="password" />
+                  </nz-form-control>
+                </nz-form-item>
+  
+                <nz-form-item>
+                  <nz-form-label class="label" nzRequired
+                    >Confirm Password</nz-form-label
+                  >
+                  <nz-form-control [nzErrorTip]="confirmPasswordErrorTpl">
+                    <input
+                      type="password"
+                      nz-input
+                      formControlName="confirmPassword"
+                    />
+                  </nz-form-control>
+                </nz-form-item>
+
+                <nz-alert class="mt-2 mb-4" nzType="error" nzMessage=""
+                [nzDescription]="errorMessage" *ngIf="errorMessage" nzShowIcon> </nz-alert>
+  
+                <button
+                  class="btn btn-secondary"
+                  nz-button
+                  [nzLoading]="isLoading"
+                  [disabled]="checkForButtonDisabled()"
+                >
+                  Sign Up
+                </button>
+                <p>
+                  Already have an account?
+                  <a [routerLink]="['/auth/sign-in']">Log in now</a>
+                </p>
+              </form>
+            </div>
+            <ng-template #elseBlock>
+                <h2 class="mt-5">Thank you!</h2>
+                <span>You have created your account successfully.</span>
+                <nz-alert
+                  class="mt-4 mb-4"
+                  nzType="success"
+                  [nzDescription]="successMessage"
+                  nzShowIcon
+                >
+                </nz-alert>
+                <button
+                class="btn btn-secondary"
+                nz-button
+                [nzLoading]="isLoading"
+                (click)="redirectToLogin()"
+              >
+                {{ "Log in now" }}
+              </button>
+              </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emailErrorTpl let-control>
+    <ng-container *ngIf="control.hasError('email')">
+      Please enter a valid email.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('required')">
+      Email is required.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('invalid')">
+      {{control.errors.invalid}}
+    </ng-container>
+  </ng-template>
+
+  <ng-template #firstNameErrorTpl let-control>
+    <ng-container *ngIf="control.hasError('required')">
+      Please enter your first name.
+    </ng-container>
+  </ng-template>
+  
+  <ng-template #lastNameErrorTpl let-control>
+    <ng-container *ngIf="control.hasError('required')">
+      Please enter your last name.
+    </ng-container>
+  </ng-template>
+  
+  <ng-template #passwordErrorTpl let-control>
+    <ng-container *ngIf="control.hasError('minlength')">
+      Password must be at least
+      {{ control.errors.minlength.requiredLength }} characters long.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('required')">
+      Please enter your password.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('custom')">
+      {{ control.errors.custom }}
+    </ng-container>
+  </ng-template>
+  
+  <ng-template #confirmPasswordErrorTpl let-control>
+    <ng-container *ngIf="control.hasError('NoPassswordMatch')">
+      The password and confirmation password do not match.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('required')">
+      Please enter your confirm password.
+    </ng-container>
+    <ng-container *ngIf="control.hasError('custom')">
+      {{ control.errors.custom }}
+    </ng-container>
+
+    
+  </ng-template>

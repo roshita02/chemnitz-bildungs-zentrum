@@ -1,0 +1,9 @@
+@function darker($color) {
+  @return darken($color, 13.333%);
+}
+  
+@function calculateRem($size) {
+  $remSize: calc($size / 16px);
+  @return $remSize * 1rem;
+}
+  

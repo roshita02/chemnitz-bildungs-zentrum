@@ -1,0 +1,11 @@
+/* FOR SCREEN SIZES */
+// Breakpoints
+$bp-xsmall: 30em; //480px
+$bp-small: 36em; // 576px
+$bp-medium: 48em; // 768px
+$bp-large: 64em; // 1024px
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";

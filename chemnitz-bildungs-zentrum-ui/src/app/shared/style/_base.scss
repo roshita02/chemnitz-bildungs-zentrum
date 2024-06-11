@@ -1,0 +1,113 @@
+@import "variable";
+@import "function";
+@import "mixin";
+
+html,
+body {
+  font-family: $font-family;
+  @include font-size($font-size-sm);
+  font-weight: $font-normal;
+  margin: 0;
+  background-color: $bg-primary-lt !important;
+}
+
+h1 {
+  @include font-size($font-size-xlg);
+  font-weight: $font-extra-bold;
+  color: $txt-label-color;
+  margin: 0;
+}
+
+li,
+a,
+button {
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+  }
+
+  i {
+    @include font-size($font-size-lg);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $txt-label-color;
+}
+
+.sub-title {
+  color: $txt-muted-color;
+  @include font-size($font-size-xs);
+  font-weight: $font-normal;
+}
+
+input {
+  height: 35px;
+}
+
+.btn-primary {
+  @include base-button($height: 44px, $font-size: $font-size-n, $padding: 8px);
+  padding: 0 25px !important;
+}
+
+.btn-secondary {
+  @include base-button($height: 44px, $font-size: $font-size-n, $btn-color: $btn-secondary-color, $padding: 8px);
+  padding: 0 25px !important;
+}
+
+.btn-primary-outline {
+  @include base-button($height: 44px, $font-size: $font-size-n, $padding: 8px, $type: "outline");
+  padding: 0 25px !important;
+}
+
+.btn-light {
+  @include base-button(
+    $height: 44px,
+    $font-size: $font-size-n,
+    $btn-color: $txt-muted-color,
+    $padding: 8px,
+    $type: "light"
+  );
+  padding: 0 25px !important;
+}
+
+form {
+  .icon-select {
+    padding: 0 !important;
+  }
+}
+
+.nav-link {
+  a {
+    color: $app-primary-color !important;
+    &:hover,
+    &.active {
+      color: $app-secondary-color !important;
+    }
+  }
+}
+
+.txt-gray {
+  color: $txt-muted-color !important;
+}
+
+.mr-4 {
+  margin-right: 16px !important;
+}
+
+.mr-2 {
+  margin-right: 4px !important;
+}
+
+.ml-2 {
+  margin-left: 4px;
+}

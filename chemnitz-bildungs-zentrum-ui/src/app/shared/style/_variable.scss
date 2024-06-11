@@ -1,0 +1,82 @@
+@import "function";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+
+/* COLORS */
+$white: #ffffff;
+$black: #000;
+$black-lt: #212121;
+
+$teal: #007f8b;
+$teal-dk: #09474d;
+$teal-lt: #f5f9fa;
+$teal-hl: #ccfbff;
+
+$grey-md: #828282;
+$grey-lt: #e1e1e1;
+$grey-xlt: #efefef;
+$grey-xxlt: #f0f0f0;
+
+$red-md: #e12f30;
+$yellow-md: #f4d35e;
+$green-md: #52c41a;
+$orange-md: #fa8c16;
+
+/* APP THEME */
+
+$app-primary-color: $teal;
+$app-secondary-color: $red-md;
+
+$bg-primary-lt: $teal-lt;
+$bg-grey-lt: $grey-lt;
+$bg-grey-xlt: $grey-xlt;
+$shadow-color: rgba($teal, 0.25);
+
+$border-color: $grey-lt;
+$divider-color: $grey-lt;
+
+$txt-label-color: $teal-dk;
+$txt-muted-color: $grey-md;
+$txt-field-color: $grey-lt;
+
+$success-color: $green-md;
+$error-color: $red-md;
+$warning-color: $orange-md;
+
+$btn-primary-color: $app-primary-color;
+$btn-secondary-color: $app-secondary-color;
+$btn-mute-color: $grey-lt;
+
+$link-color: $app-secondary-color;
+
+$btn-primary-text-color: $white;
+$btn-secondary-text-color: $white;
+
+$card-default-bg-color: $white;
+$card-default-txt-color: $grey-md;
+
+$card-primary-bg-color: $app-primary-color;
+$card-primary-txt-color: $white;
+$highlight-color: $teal-hl;
+$tag-color: $teal;
+/* END APP THEME */
+
+/* FONTS */
+$font-family: "Roboto", sans-serif;
+
+$font-size-xxxlg: 42px;
+$font-size-xxlg: 32px;
+$font-size-xlg: 28px;
+$font-size-lg: 22px;
+$font-size-md: 18px;
+$font-size-n: 16px;
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+$font-size-xxs: 10px;
+$font-size-xxxs: 8px;
+
+$font-thin: 300;
+$font-normal: 400;
+$font-bold: 500;
+$font-extra-bold: 700;
+
+/* END FONTS */

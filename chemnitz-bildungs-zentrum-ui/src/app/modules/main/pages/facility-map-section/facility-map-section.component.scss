@@ -1,0 +1,140 @@
+@import "../../../../../styles.scss";
+
+.facilities-map-section {
+  padding: 2rem;
+  .pg-header {
+    margin-bottom: 2rem;
+    p {
+      color: $txt-muted-color;
+    }
+  }
+  .pg-filter {
+    margin-bottom: 2rem;
+    .options {
+      display: flex;
+      flex-direction: row;
+    }
+    .ant-select {
+      // min-width: 400px;
+      // max-width: fit-content;
+    }
+    @media (max-width: 768px) {
+      .ant-select {
+        min-width: auto !important;
+      }
+    }
+  }
+
+  .facility-filter {
+    .ant-select {
+      // max-width: 400px;
+    }
+   
+  }
+  .total-count {
+    color: $app-primary-color;
+  }
+}
+
+.map-container {
+  position: relative;
+  height: 70vh; /* Set a specific height for the map container */
+  width: 100%;
+}
+
+.map-frame {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  height: 100%;
+  padding: 0;
+}
+
+.facilities-filter{
+  nz-select {
+    width: 100%;
+  }
+  nz-select-top-control {
+    height: 40px !important;
+  }
+}
+
+nz-select {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .pg-filter{
+    flex-direction: column !important;
+  }
+
+  .facility-filter,
+  .school-filter {
+    margin-right: 0; /* Remove right margin for smaller screens */
+    margin-bottom: 1rem; /* Add some space between filters */
+  }
+
+  .facilities-map-section {
+    padding: 0px;
+  }
+
+  ::ng-deep .ant-card-body {
+    padding: 12px;
+  }
+}
+
+.facilities-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg-filter {
+  height: auto;
+}
+
+
+
+::ng-deep .ant-select-selection-item.school {
+  background-color: #0078FF; /* Red background for urgent tags */
+  color: white;
+}
+
+::ng-deep .ant-select-selection-item.kindergarden {
+  background-color: #fe7e0f; /* Red background for urgent tags */
+  color: white;
+}
+
+::ng-deep .ant-select-selection-item.socialChildProject {
+  background-color: #FF5768; /* Red background for urgent tags */
+  color: white;
+}
+
+::ng-deep .ant-select-selection-item.socialTeenagerProject {
+  background-color: #8e3ccb; /* Red background for urgent tags */
+  color: white;
+}
+
+::ng-deep .ant-select-selector {
+  min-height: 35px;
+}
+.address-input {
+  cursor: pointer !important;
+}
+
+.school-filter {
+  ::ng-deep .ant-select-selection-item {
+    background-color: #0078FF; /* Red background for urgent tags */
+    color: white;
+  }
+  .ant-select {
+    // max-width: 668px !important;
+  }
+}

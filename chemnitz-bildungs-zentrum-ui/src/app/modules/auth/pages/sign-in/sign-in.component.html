@@ -1,0 +1,66 @@
+<div class="pg-signin">
+    <div class="content">
+  
+      <div class="row">
+        <div class="col-12 col-md-6 left d-none d-sm-block">
+          <div>
+            <div class="overlay">
+              <h2>Welcome back,</h2>
+              <span>Discover Learning and Development Facilities for you or your children.</span>
+            </div>
+            <!-- <img src="/assets/img/visual-login.png"/> -->
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6 right">
+  
+          <div>
+            <!-- <div class="text-center">
+              <h1>Chemnitz Education Hub</h1>
+            </div> -->
+            <div class="text-center">
+              <img src="assets/img/chemnitz-bildungs-zentrum-header-logo.png"/>
+            </div>
+            <h2 class="mt-5">Log in</h2>
+  
+            <form nz-form [nzLayout]="'vertical'" [formGroup]="signInForm" (ngSubmit)="submitForm()">
+              <nz-form-item>
+                <nz-form-label class="label">E-mail</nz-form-label>
+                <nz-form-control nzErrorTip="Please enter valid email address">
+                  <nz-input-group>
+                    <input type="text"
+                    nz-input
+                    formControlName="email"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+  
+              <nz-form-item>
+                <nz-form-label class="label">Password</nz-form-label>
+                <nz-form-control nzErrorTip="Please enter password">
+                  <nz-input-group>
+                    <input type="password"
+                    nz-input
+                    formControlName="password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+                
+                <nz-alert class="mb-4 mt-2" nzType="error" nzMessage=""
+                [nzDescription]="errorMessage" *ngIf="errorMessage" nzShowIcon> </nz-alert>
+  
+                <button class="btn btn-secondary mt-4"  nz-button [nzLoading]="isLoading"
+                [disabled]="signInForm.invalid">Sign In</button>
+  
+                <p>Don't have account? <a [routerLink]="['/auth/sign-up']">Sign up now</a></p>
+              </nz-form-item>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

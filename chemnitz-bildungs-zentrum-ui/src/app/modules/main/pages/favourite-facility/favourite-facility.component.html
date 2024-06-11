@@ -1,0 +1,102 @@
+<div class="favourite-facility" >
+        <!-- <nz-card class="card">
+          <div class="d-flex">
+            <h4>Favorite</h4>
+            <div class="delete-icon" *ngIf="favouriteFacility">
+              <i
+                nz-icon
+                nzType="delete"
+                nzTheme="outline"
+                (click)="openRemoveFavouriteModal()"
+                nzTooltipTitle="Delete"
+                nzTooltipPlacement="top"
+                nz-tooltip
+              ></i>
+            </div>
+          </div>
+
+            <div *ngIf="favouriteFacility; else nodata">
+                <div class="row facility">
+                    <div class="fav-icon">
+                      <nz-avatar nzIcon="star" [nzSize]="48"></nz-avatar>
+                    </div>
+                    <div class="facility-detail">
+                      <h6>{{ favouriteFacility.name }}</h6>
+                    </div>
+                    <p class="txt-gray">{{ favouriteFacility.facilityType | titlecase }}</p>
+                    <p class="txt-gray">{{ favouriteFacility.address }}</p>
+                    <p class="txt-gray" *ngIf="favouriteFacility.telephone">Telephone: {{ favouriteFacility.telephone }}</p>
+                </div>
+            </div>
+        </nz-card> -->
+        
+  <div class="card profile">
+    <div class="p-4">
+      <div class="user-info">
+        <h2>Favorite</h2>
+      </div>
+      <div class="d-flex">
+        <div class="delete-icon" *ngIf="favouriteFacility && favouriteFacility._id">
+          <i
+            nz-icon
+            nzType="delete"
+            nzTheme="outline"
+            (click)="openRemoveFavouriteModal()"
+            nzTooltipTitle="Delete"
+            nzTooltipPlacement="top"
+            nz-tooltip
+          ></i>
+        </div>
+      </div>
+      <div *ngIf="favouriteFacility && (favouriteFacility != {} || favouriteFacility != undefined) ; else nodata">
+        <div class="row facility">
+            <div class="fav-icon">
+              <nz-avatar nzIcon="star" [nzSize]="48"></nz-avatar>
+            </div>
+            <div class="facility-detail">
+              <h6>{{ favouriteFacility.name | titlecase }}</h6>
+            </div>
+            <p class="txt-gray">{{ favouriteFacility.facilityType | titlecase }}</p>
+            <p class="txt-gray">{{ favouriteFacility.address }}</p>
+            <p class="txt-gray" *ngIf="favouriteFacility.telephone">Telephone: {{ favouriteFacility.telephone }}</p>
+            <p class="txt-gray" *ngIf="favouriteFacility.email && favouriteFacility.email != 'NaN'">Email: {{ favouriteFacility.email }}</p>
+          </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #nodata>
+    <div
+      class="d-flex justify-content-center align-items-center text-center"
+      [ngStyle]="{ height: '200px' }"
+    >
+      <div>
+        <img src="assets/img/no-data.png" alt="empty" class="ng-star-inserted" />
+        <p class="text-muted mt-2">You haven't marked any facility as favorite yet</p>
+      </div>
+      
+    </div>
+  </ng-template>
+
+  <nz-modal
+  [(nzVisible)]="isDeleteModalVisible"
+  [nzTitle]="modalTitle"
+  nzContent="Are you sure you want to remove this facility from favourite?"
+  (nzOnCancel)="deleteCancel()"
+  [nzFooter]="modalFooter"
+>
+</nz-modal>
+<ng-template #modalTitle>
+  <h1>Remove from Favourite</h1>
+</ng-template>
+
+<ng-template #modalFooter>
+  <button nz-button class="btn" nzType="text" (click)="deleteCancel()">
+    Cancel
+  </button>
+  <button nz-button class="btn btn-secondary" (click)="deleteOk()">Yes</button>
+</ng-template>
+
+    
+    

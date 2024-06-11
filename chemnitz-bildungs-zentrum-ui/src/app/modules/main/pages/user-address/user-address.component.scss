@@ -1,0 +1,20 @@
+.address-map-container {
+    position: relative;
+    height: 60vh; /* Set a specific height for the map container */
+    width: 100%;
+  }
+  
+  .map-frame {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #map1 {
+    height: 100%;
+    width: 100%;
+  }
+
+  .map-info {
+    color: grey;
+    font-size: smaller;
+  }

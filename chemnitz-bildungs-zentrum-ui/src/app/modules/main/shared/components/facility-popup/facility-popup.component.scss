@@ -1,0 +1,81 @@
+@import "../../../../../../styles.scss";
+
+
+
+::ng-deep .leaflet-popup-content-wrapper {
+    min-width: 300px !important;  // Set the desired min width
+    // overflow-y: auto !important;  // Add scroll if content exceeds max height
+  }
+  
+  ::ng-deep .leaflet-popup-content {
+    max-height: 100% !important;  // Ensure content takes full height of wrapper
+    min-width: 100% !important;   // Ensure content takes full width of wrapper
+    margin: 0px 24px 0px 0px;
+    padding: 12px 12px;
+  }
+
+  ::ng-deep .ant-divider-horizontal {
+    margin: 8px 0;
+  }
+
+  i {
+    color: $app-primary-color;
+  }
+
+  .info {
+    display: flex;
+    padding: 0.5em 0em;
+    align-items: center;
+    font-size: $font-size-xs;
+    i {
+      color: $app-primary-color;
+      font-size: $font-size-md;
+    }
+
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      min-width: 30px;
+    }
+  }
+
+  .favourite {
+    cursor: pointer;
+  }
+  .header-list {
+    margin-top: 4px;
+    .header {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+    }
+    .header-icon {
+      font-size: 16px;
+      margin-right: 4px;
+    }
+  }
+  
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  ::ng-deep .leaflet-popup-content-wrapper {
+    max-width: 250px !important;  // Set the desired min width
+    min-width: 250px !important; 
+  }
+
+  .facilityPopup {
+    max-width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+::ng-deep .leaflet-popup-content-wrapper {
+  background-color: $bg-primary-lt;
+}
+

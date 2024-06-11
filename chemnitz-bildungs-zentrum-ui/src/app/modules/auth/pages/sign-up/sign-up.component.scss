@@ -1,0 +1,61 @@
+@import '../../../../../styles.scss';
+@import '../sign-in/sign-in.component.scss';
+
+.pg-signup {
+
+
+  h1 {
+    margin: 0px;
+    font-size: x-large;
+  }
+
+  .content {
+    .left {
+      min-height: 650px;
+      >div {
+        .overlay {
+
+          ul {
+              list-style: none;
+              padding: 0;
+
+            li {
+              margin: 0.8em 0;
+              @include font-size($font-size-md);
+              font-weight: $font-thin;
+              opacity: 0.8;
+
+
+              &:before {
+                content: "\2192";
+                display: inline-block;
+                margin-left: -1.3em;
+                width: 1.3em;
+              }
+            }
+          }
+        }
+
+      }
+    }
+    .right {
+      .subtitle {
+        color: $app-primary-color;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 16px;
+        text-align: center;
+        margin-bottom: 39px;
+      }
+
+      .btn {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      h2 {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

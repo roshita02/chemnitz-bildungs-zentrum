@@ -1,0 +1,88 @@
+@import "../../../../../../styles.scss";
+
+.navbar {
+  background: $white;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  padding: 0;
+  height: 60px;
+
+  .navbar-text {
+    margin-left: auto;
+  }
+
+  .navbar-brand {
+    padding: 0px 15px;
+    line-height: 60px;
+  }
+
+  .navbar-collapse {
+    background-color: white;
+    z-index: 5;
+    ul {
+      display: flex;
+      align-items: center;
+
+      .nav-item {
+        height: 60px;
+        .nav-link {
+          color: $txt-label-color;
+          font-size: $font-size-sm;
+          font-weight: $font-bold;
+          display: flex;
+          align-items: center;
+          padding: 10px 20px;
+          height: 100%;
+
+          &:hover,
+          &.active {
+            background-color: $app-primary-color;
+            color: $white;
+          }
+
+          i {
+            margin-right: 0.5em;
+            font-size: $font-size-sm;
+          }
+        }
+      }
+    }
+
+    .d-link {
+      color: $txt-muted-color !important;
+      &:hover,
+      &.active {
+        background-color: $app-primary-color !important;
+        color: $white !important;
+      }
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $app-primary-color;
+    }
+
+    .avatar {
+      background-color: $app-primary-color;
+    }
+
+    a {
+      color: $txt-label-color;
+      font-size: $font-size-sm;
+      font-weight: $font-bold;
+      display: flex;
+      align-items: center;
+      padding: 0 20px 0 10px;
+      height: 100%;
+    }
+  }
+}
+
+.disable-nav {
+  pointer-events: none;
+  opacity: 0.5;
+}

@@ -1,0 +1,54 @@
+@import "../../../../../styles.scss";
+.user-profile {
+  display: block;
+  height: calc(100% - 84px);
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    min-height: 328px;
+  }
+
+  .page-header {
+    padding: 2rem;
+  }
+  
+  .profile {
+    .info {
+      display: flex;
+      padding: 0.5em 0em;
+      align-items: center;
+      font-size: $font-size-sm;
+      i {
+        color: $app-primary-color;
+        font-size: $font-size-lg;
+      }
+
+      .contact-icon {
+        display: flex;
+        align-items: center;
+        min-width: 50px;
+      }
+    }
+
+    .edit-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 25px;
+      color: $txt-muted-color;
+      font-size: $font-size-n;
+
+      i {
+        cursor: pointer;
+      }
+      &:hover{
+        color: $app-secondary-color;
+      }
+    }
+  }
+}
+
+.link {
+    text-decoration: underline; 
+    cursor: pointer;
+}

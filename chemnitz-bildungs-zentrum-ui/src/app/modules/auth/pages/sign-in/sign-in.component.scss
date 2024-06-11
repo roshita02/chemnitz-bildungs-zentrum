@@ -1,0 +1,140 @@
+@import '../../../../../styles.scss';
+
+.pg-signin, .pg-signup, .pg-reset, .pg-forgot, .pg-activation, .pg-expired {
+  background-color: #f5f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .content {
+    border-radius: 10px;
+    box-shadow: 0 14px 28px $shadow-color, 0 10px 10px $shadow-color;
+    overflow: hidden;
+    margin: 20px 0;
+    padding: 0 15px;
+    width: 100%;
+    .left {
+      background: $card-primary-bg-color;
+      min-height: 550px;
+      >div {
+        color: $card-primary-txt-color;
+        height: 100%;
+        overflow: hidden;
+
+        .overlay {
+          padding: 150px 50px 0;
+
+          h2 {
+            color: $card-primary-txt-color;
+            @include font-size($font-size-lg);
+          }
+
+          span {
+            @include font-size($font-size-xxlg);
+            font-weight: $font-thin;
+          }
+        }
+
+        img {
+          position: absolute;
+          bottom: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+    }
+
+    .right {
+      background-color: white;
+      >div {
+        padding: 4em 2em 2em 2em;
+
+        img {
+          width: 250px;
+        }
+
+        form {
+          padding: 20px 0 0;
+          width: 100%;
+        }
+
+        h1 {
+          @include font-size($font-size-xxxlg);
+          color: $app-primary-color;
+          font-weight: $font-extra-bold;
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        h2 {
+          @include font-size($font-size-lg);
+          color: $txt-label-color;
+          font-weight: $font-extra-bold;
+        }
+
+        a {
+          color: $link-color;
+          font-weight: $font-bold;
+          @include font-size($font-size-sm);
+        }
+
+        p {
+          color: $txt-label-color;
+          font-weight: $font-bold;
+          text-align: center;
+          @include font-size($font-size-sm);
+        }
+
+        span {
+          color: $txt-muted-color;
+          font-weight: $font-bold;
+        }
+
+        .label {
+          color: $txt-label-color;
+          @include font-size($font-size-sm);
+          font-weight: $font-bold;
+          text-align: left;
+          padding: 0;
+        }
+
+        .btn {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+
+        .subtitle {
+          color: $app-primary-color;
+          @include font-size($font-size-sm);
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .checkbox {
+          @include font-size($font-size-sm);
+
+        }
+
+        .link {
+          color: $txt-muted-color !important;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  @media #{$mq-medium} {
+    .content {
+      width: 80%;
+    }
+  }
+
+  @media #{$mq-large} {
+    .content {
+      width: 70%;
+    }
+  }
+}
