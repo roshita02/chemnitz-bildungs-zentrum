@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { plainToClass } from 'class-transformer';
@@ -6,31 +6,44 @@ import { takeUntil } from 'rxjs/operators';
 import { User } from '../../../../../shared/model/user.model';
 import { AuthService } from '../../../../auth/services/auth.service';
 import { subscribedContainerMixin } from '../../../../../shared/subscribedContainer.mixin';
+import { UserService } from '../../services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent extends subscribedContainerMixin() implements OnInit {
+export class NavBarComponent extends subscribedContainerMixin() implements OnInit, OnDestroy {
   navbarOpen = false;
   currentUser!: User;
   isSignOutModalVisible = false;
+
+  private userSubscription!: Subscription;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private notification: NzNotificationService,
+    private userService: UserService,
   ) {
     super(); 
-    let user = localStorage.getItem('currentUser');
-    if (user) {
-      this.currentUser = plainToClass(User, JSON.parse(user));
-    }
+    // let user = localStorage.getItem('currentUser');
+    // if (user) {
+    //   this.currentUser = plainToClass(User, JSON.parse(user));
+    // }
   }
 
   ngOnInit(): void {
+    this.userSubscription = this.userService.getUser().subscribe(
+      (user: User) => {
+        console.log(user);
+        this.currentUser = plainToClass(User, user);
+      }
+    );
   }
+
+ 
 
   toggleNavbar(): void {
     this.navbarOpen = !this.navbarOpen;
@@ -38,6 +51,7 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
 
   getUserName(): string {
     if (this.currentUser) {
+      console.log(this.currentUser);
       return this.toTitleCase(this.currentUser.firstName + ' ' + this.currentUser.lastName);
     } else {
       return 'User';
@@ -83,5 +97,12 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
     return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
         return match.toUpperCase();
     });
-}
+  } 
+
+  override ngOnDestroy(): void {
+    if (this.userSubscription) {
+      this.userSubscription.unsubscribe();
+    }
+  }
+
 }

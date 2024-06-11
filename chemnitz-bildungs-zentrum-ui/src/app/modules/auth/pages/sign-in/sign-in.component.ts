@@ -7,6 +7,7 @@ import { User } from '../../../../shared/model/user.model';
 import { takeUntil } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { subscribedContainerMixin } from '../../../../shared/subscribedContainer.mixin';
+import { UserService } from '../../../main/shared/services/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -21,6 +22,7 @@ export class SignInComponent extends subscribedContainerMixin() implements OnIni
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router: Router,
+              private userService: UserService,
               private notification: NzNotificationService) {
                 super();
   }
@@ -51,6 +53,7 @@ export class SignInComponent extends subscribedContainerMixin() implements OnIni
           if (res.success) {
             let user = plainToClass(User, res.data);
               localStorage.setItem('currentUser', JSON.stringify(user));
+              this.userService.setUser(user);
               if (res.token) {
                 localStorage.setItem('authToken', res.token);
               }

@@ -70,8 +70,8 @@ export class MainService {
         return this.http.get<ApiResponse<User>>(this.baseUrl + '/users/' + userId);
     }
 
-    deleteUser(userId: string): Observable<ApiResponse<any>> {
-        return this.http.delete<ApiResponse<any>>(this.baseUrl + '/users/');
+    deleteUser(): Observable<ApiResponse<any>> {
+        return this.http.delete<ApiResponse<any>>(this.baseUrl + '/users/delete');
     }
 
     updateUser(userId: string, params: any): Observable<ApiResponse<any>> {

@@ -14,6 +14,7 @@ import { User } from '../../../../shared/model/user.model';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UserAddressComponent } from '../user-address/user-address.component';
 import 'leaflet.markercluster';
+import { UserService } from '../../shared/services/user.service';
 
 interface MarkerData {
   id: string;
@@ -92,7 +93,8 @@ export class FacilityMapSectionComponent extends subscribedContainerMixin() impl
       private injector: Injector,
       private appRef: ApplicationRef,
       private el: ElementRef,
-      private renderer: Renderer2
+      private renderer: Renderer2,
+      private userService: UserService
     ) {
         super();
         let user = localStorage.getItem('currentUser');
@@ -460,6 +462,7 @@ export class FacilityMapSectionComponent extends subscribedContainerMixin() impl
           this.homeaddressplaceholder = result.address.street;
           this.currentUser.address = result.address;
           localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.userService.setUser(this.currentUser);
         }
         if (result) {
           if (this.homeAddressMarker) {

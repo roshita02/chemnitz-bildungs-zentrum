@@ -8,6 +8,7 @@ import { takeUntil } from 'rxjs';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UpdateUserAccountModalComponent } from '../update-user-account-modal/update-user-account-modal.component';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-user-account',
@@ -24,6 +25,7 @@ export class UserAccountComponent implements OnInit {
     private notification: NzNotificationService,
     private modal: NzModalService,
     private viewContainerRef: ViewContainerRef,
+    private userService: UserService,
     private cdr: ChangeDetectorRef
   ) {
     // super();
@@ -54,6 +56,7 @@ export class UserAccountComponent implements OnInit {
           { nzPlacement: 'bottomLeft' }
         );
         this.currentUser = plainToClass(User, JSON.parse(result.data));
+        this.userService.setUser(this.currentUser);
       }
     });
   }
@@ -86,7 +89,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   deleteAccount(): void {
-    this.mainService.deleteUser(this.currentUser._id || '')
+    this.mainService.deleteUser()
     .subscribe(() => {
       this.notification.create(
         'success',

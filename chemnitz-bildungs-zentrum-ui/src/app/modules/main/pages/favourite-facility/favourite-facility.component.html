@@ -36,7 +36,7 @@
         <h2>Favorite</h2>
       </div>
       <div class="d-flex">
-        <div class="delete-icon" *ngIf="favouriteFacility && favouriteFacility._id">
+        <div class="delete-icon" *ngIf="favouriteFacility && (favouriteFacility != {} || favouriteFacility != undefined) ">
           <i
             nz-icon
             nzType="delete"
