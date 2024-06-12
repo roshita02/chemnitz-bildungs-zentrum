@@ -19,7 +19,12 @@ export class UserService {
     this.userSubject.next(newUser);
   }
 
-  private getUserFromLocalStorage(): User {
-    return plainToClass(User, localStorage.getItem('currentUser'));
+  private getUserFromLocalStorage(): any {
+    let user = localStorage.getItem('currentUser');
+    if (user) {
+      return plainToClass(User, JSON.parse(user));
+    }
+    return null;
+    
   }
 }

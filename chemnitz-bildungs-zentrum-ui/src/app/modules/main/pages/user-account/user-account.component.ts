@@ -35,7 +35,6 @@ export class UserAccountComponent implements OnInit {
     let user = localStorage.getItem('currentUser');
     if (user) {
       this.currentUser = plainToClass(User, JSON.parse(user));
-      // this.cdr.detectChanges(); 
     }
   }
 

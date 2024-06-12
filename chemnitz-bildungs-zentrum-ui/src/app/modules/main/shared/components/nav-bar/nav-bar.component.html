@@ -42,10 +42,10 @@
       </ul>
   
       <div class="user ml-auto navbar-text" nz-dropdown [nzDropdownMenu]="menu">
-        <nz-avatar class="avatar" [nzText]="getUserName()[0]"></nz-avatar>
+        <nz-avatar class="avatar" [nzText]="userName"></nz-avatar>
         <div class="nav-item">
           <a>
-            Hi, {{ getUserName() | titlecase }}
+            Hi, {{ userName | titlecase }}
             <i class="ml-2" nz-icon nzType="down" nzTheme="outline"></i>
           </a>
         </div>

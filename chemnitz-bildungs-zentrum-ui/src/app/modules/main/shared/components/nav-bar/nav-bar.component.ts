@@ -18,6 +18,7 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
   navbarOpen = false;
   currentUser!: User;
   isSignOutModalVisible = false;
+  userName!: string;
 
   private userSubscription!: Subscription;
 
@@ -29,28 +30,31 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
   ) {
     super(); 
     let user = localStorage.getItem('currentUser');
-    if (user) {
-      this.currentUser = plainToClass(User, JSON.parse(user));
-    }
+    // if (user) {
+    //   this.currentUser = plainToClass(User, user);
+    //   this.userName = this.getUserName(this.currentUser);
+    // }
   }
 
   ngOnInit(): void {
     this.userSubscription = this.userService.getUser().subscribe(
       (user: User) => {
-        this.currentUser = plainToClass(User, user);
+        if (user) {
+          console.log(user);
+          this.currentUser = plainToClass(User, user);
+          this.userName = this.getUserName(this.currentUser);
+        }
       }
     );
   }
-
- 
 
   toggleNavbar(): void {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  getUserName(): string {
-    if (this.currentUser) {
-      return this.toTitleCase(this.currentUser.firstName + ' ' + this.currentUser.lastName);
+  getUserName(currentUser: User): string {
+    if (currentUser) {
+      return this.toTitleCase(currentUser.firstName + ' ' + currentUser.lastName);
     } else {
       return 'User';
     }
