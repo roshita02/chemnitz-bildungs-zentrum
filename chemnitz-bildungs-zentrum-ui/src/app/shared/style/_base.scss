@@ -111,3 +111,7 @@ form {
 .ml-2 {
   margin-left: 4px;
 }
+
+::ng-deep .ant-alert-with-description { 
+  align-items: center;
+}

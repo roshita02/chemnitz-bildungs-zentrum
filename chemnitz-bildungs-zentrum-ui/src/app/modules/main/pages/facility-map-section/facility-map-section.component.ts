@@ -352,7 +352,9 @@ export class FacilityMapSectionComponent extends subscribedContainerMixin() impl
           case 'schools':
             this.listOfSchools = [];
             this.showSchool = false;
-            this.map.removeLayer(this.schoolWithSchoolTypeMarkerCursorGroup);
+            if (this.schoolWithSchoolTypeMarkerCursorGroup) {
+              this.map.removeLayer(this.schoolWithSchoolTypeMarkerCursorGroup);
+            }
             break;
           case 'kindergardens':
             this.map.removeLayer(this.kindergardenMarkerCursorGroup);

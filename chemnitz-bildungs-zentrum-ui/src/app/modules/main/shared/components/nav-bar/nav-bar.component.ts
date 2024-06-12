@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { plainToClass } from 'class-transformer';
@@ -28,16 +28,15 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
     private userService: UserService,
   ) {
     super(); 
-    // let user = localStorage.getItem('currentUser');
-    // if (user) {
-    //   this.currentUser = plainToClass(User, JSON.parse(user));
-    // }
+    let user = localStorage.getItem('currentUser');
+    if (user) {
+      this.currentUser = plainToClass(User, JSON.parse(user));
+    }
   }
 
   ngOnInit(): void {
     this.userSubscription = this.userService.getUser().subscribe(
       (user: User) => {
-        console.log(user);
         this.currentUser = plainToClass(User, user);
       }
     );
@@ -51,7 +50,6 @@ export class NavBarComponent extends subscribedContainerMixin() implements OnIni
 
   getUserName(): string {
     if (this.currentUser) {
-      console.log(this.currentUser);
       return this.toTitleCase(this.currentUser.firstName + ' ' + this.currentUser.lastName);
     } else {
       return 'User';
