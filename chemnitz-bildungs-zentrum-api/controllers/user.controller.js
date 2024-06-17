@@ -10,7 +10,7 @@ export async function registerUser(req, res) {
     try {
         const newUser = new User({ firstName, lastName, email, password, phoneNumber });
         const savedUser = await newUser.save();
-        res.status(201).json({ success: true, message: 'User registered successfully', data: savedUser });
+        res.status(201).json({ success: true, message: 'User registered successfully'});
     } catch (error) {
         if (error.code === 11000) {
             // Handle unique key violation error
