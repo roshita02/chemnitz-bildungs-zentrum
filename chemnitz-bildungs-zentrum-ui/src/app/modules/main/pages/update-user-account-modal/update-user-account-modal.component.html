@@ -4,7 +4,7 @@
         <nz-form-item>
           <nz-form-label nzRequired nzFor="firstName">First Name</nz-form-label>
           <nz-form-control [nzErrorTip]="errorTpl">
-            <input nz-input formControlName="firstName" id="firstName" />
+            <input nz-input formControlName="firstName" id="firstName" name="firstName" />
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -12,7 +12,7 @@
         <nz-form-item>
           <nz-form-label nzRequired nzFor="lastName">Last Name</nz-form-label>
           <nz-form-control [nzErrorTip]="errorTpl">
-            <input nz-input formControlName="lastName" id="lastName" />
+            <input nz-input formControlName="lastName" id="lastName" name="lastName"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -23,7 +23,7 @@
         <nz-form-item>
           <nz-form-label nzRequired nzFor="email">Email</nz-form-label>
           <nz-form-control [nzErrorTip]="errorTpl">
-            <input nz-input formControlName="email" id="email">
+            <input nz-input formControlName="email" id="email" name="email">
           </nz-form-control>
         </nz-form-item>
       </div>
