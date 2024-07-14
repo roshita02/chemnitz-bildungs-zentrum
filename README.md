@@ -20,8 +20,6 @@ estimate the distances between the home and the facility.
 
 ![map-with-popup](https://github.com/user-attachments/assets/e54ffbd0-6b96-45ca-923a-1df6e9f88752)
 
-![mobile-home-all-filters](https://github.com/user-attachments/assets/a62a5407-5940-4ba7-aab4-495e76a0230c)
-
 
 Project Setup Manual
 ========================
