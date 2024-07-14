@@ -1,3 +1,28 @@
+About
+========================
+Education and care are basic needs of every human being. In today's digital age, finding
+information about the facilities providing such services is crucial. Knowing where these facilities
+are located and how to reach them is a key decision-making factor. Therefore, having easy access
+to detailed information about these facilities on the web is necessary for informed
+decision-making.
+
+**Chemnitz BildungsZentrum** is a digital platform designed to streamline the process of locating
+learning and development facilities. It leverages publicly available datasets of Kindergartens,
+Schools, Social Child Projects, and Social Teenager Projects. Hence, users are able to look for
+these facilities using an interactive map interface and a variety of filters. The map displays search
+results of the filters as markers which are color-coded based on the type of facility it represents.
+Users can click on these markers to access detailed information about each facility, including
+address, contact information, opening hours, wheelchair possibility etc. Users also have the
+option to set their home address to visualize the facilities near their home on the map and
+estimate the distances between the home and the facility.
+
+![markers-all](https://github.com/user-attachments/assets/ba345dd3-fe12-43d0-980d-3d40c4f883f9)
+
+![map-with-popup](https://github.com/user-attachments/assets/e54ffbd0-6b96-45ca-923a-1df6e9f88752)
+
+![mobile-home-all-filters](https://github.com/user-attachments/assets/a62a5407-5940-4ba7-aab4-495e76a0230c)
+
+
 Project Setup Manual
 ========================
 
